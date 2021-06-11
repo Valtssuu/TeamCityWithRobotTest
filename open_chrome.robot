@@ -6,5 +6,5 @@ Library             OperatingSystem
 *** Keywords
 
 *** Test Cases
-Open Browser
+Laita moro
   Set suite variable  ${moro}   moro
