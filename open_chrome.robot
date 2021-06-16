@@ -8,4 +8,4 @@ Library             OperatingSystem
 *** Test Cases
 Laita moro
   Set suite variable  ${moro}   moro
-  Open browser    chrome
+  Open browser    headlesschrome
