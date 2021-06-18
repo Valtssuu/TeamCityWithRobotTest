@@ -8,4 +8,6 @@ Variables         variables.py
 *** Test Cases
 Laita moro
   Set suite variable  ${moro}   moro
-  Log To Console      ${TEKSTI}
+  IF "${TEKSTI}" == "None"
+  Open daben
+  END
