@@ -8,4 +8,4 @@ Variables         variables.py
 *** Test Cases
 Laita moro
   Set suite variable  ${moro}   moro
-  Open browser    headlesschrome
+  Log To Console      ${TEKSTI}
