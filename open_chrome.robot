@@ -1,8 +1,8 @@
 ***Settings
 Documentation     Simple example using SeleniumLibrary.
-Library             SeleniumLibrary
-Library             OperatingSystem
-
+Library           SeleniumLibrary
+Library           OperatingSystem
+Variables         variables.py
 *** Keywords
 
 *** Test Cases
