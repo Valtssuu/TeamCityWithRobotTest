@@ -9,3 +9,4 @@ Variables         variables.py
 Laita moro
   Set suite variable  ${moro}   moro
   Log to Console  ${TEKSTI}
+  Open browser  chrome
