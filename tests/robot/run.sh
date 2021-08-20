@@ -1,9 +1,43 @@
-robot --output original.xml flakytests.robot 
-
+# clean previous output files
+rm -f output/output.xml
+rm -f output/rerun.xml
+rm -f output/first_run_log.html
+rm -f output/second_run_log.html
+ 
+echo
+echo "#######################################"
+echo "# Running portfolio a first time      #"
+echo "#######################################"
+echo
+robot --outputdir output $@
+ 
+# we stop the script here if all the tests were OK
 if [ $? -eq 0 ]; then
-	echo "Everything ok on the first try!"
+	echo "we don't run the tests again as everything was OK on first try"
 	exit 0	
 fi
-
-robot --rerunfailed original.xml --output rerun.xml flakytests.robot
-rebot --merge original.xml rerun.xml
+# otherwise we go for another round with the failing tests
+ 
+# we keep a copy of the first log file
+cp output/log.html  output/first_run_log.html
+ 
+# we launch the tests that failed
+echo
+echo "#######################################"
+echo "# Running again the tests that failed #"
+echo "#######################################"
+echo
+robot --outputdir output --nostatusrc --rerunfailed output/output.xml --output rerun.xml $@
+# Robot Framework generates file rerun.xml
+ 
+# we keep a copy of the second log file
+cp output/log.html  output/second_run_log.html
+ 
+# Merging output files
+echo
+echo "########################"
+echo "# Merging output files #"
+echo "########################"
+echo
+rebot --nostatusrc --outputdir output --output output.xml --merge output/output.xml  output/rerun.xml
+# Robot Framework generates a new output.xml
