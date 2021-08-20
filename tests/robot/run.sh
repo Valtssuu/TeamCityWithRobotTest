@@ -1,10 +1,9 @@
-robot --output output.xml .
+robot --output original.xml open_chrome.robot 
 
 if [ $? -eq 0 ]; then
 	echo "Everything ok on the first try!"
 	exit 0	
 fi
 
-robot --outputdir output --nostatusrc --rerunfailed output.xml --output rerun.xml
-
-
+robot --rerunfailed original.xml --output rerun.xml testi.robot
+rebot --merge original.xml rerun.xml
