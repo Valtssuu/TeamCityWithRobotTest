@@ -5,5 +5,5 @@ if [ $? -eq 0 ]; then
 	exit 0	
 fi
 
-robot --rerunfailed original.xml --output rerun.xml testi.robot
+robot --rerunfailed original.xml --output rerun.xml open_chrome.robot
 rebot --merge original.xml rerun.xml
