@@ -9,7 +9,7 @@ echo "#######################################"
 echo "# Running portfolio a first time      #"
 echo "#######################################"
 echo
-robot --outputdir output $@
+robot --outputdir output flakytests.robot
  
 # we stop the script here if all the tests were OK
 if [ $? -eq 0 ]; then
@@ -27,7 +27,7 @@ echo "#######################################"
 echo "# Running again the tests that failed #"
 echo "#######################################"
 echo
-robot --outputdir output --nostatusrc --rerunfailed output/output.xml --output rerun.xml $@
+robot --outputdir output --nostatusrc --rerunfailed output/output.xml --output rerun.xml flakytests.robot
 # Robot Framework generates file rerun.xml
  
 # we keep a copy of the second log file
