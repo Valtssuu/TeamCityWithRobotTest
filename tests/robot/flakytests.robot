@@ -18,7 +18,3 @@ unstable_test
 unstable_test2
     ${bool} =  random_boolean
     should be true  ${bool}
-    
-unstable_test3
-    ${bool} =  random_boolean
-    should be true  ${bool}
