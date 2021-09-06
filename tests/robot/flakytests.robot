@@ -11,6 +11,10 @@ random_boolean
     Run keyword and return  evaluate  (${nb_int} % 2) == 0
 *** Test Cases
 
+browser_test
+    Open browser         https://onlinetesting.talenom.fi/            headlesschrome
+    Wait Until Element Is Visible   //*[@id="usernameLabel"]    40
+    
 unstable_test
     ${bool} =  random_boolean
     should be true  ${bool}
